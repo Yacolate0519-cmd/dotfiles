@@ -1,0 +1,1 @@
+/Users/yacolate0519/.config/zsh/.zshrc
