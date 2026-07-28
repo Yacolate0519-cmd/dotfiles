@@ -72,8 +72,6 @@ export PATH="$PATH:/Users/yacolate0519/.lmstudio/bin"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
-export JAVA_HOME="/opt/homebrew/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home"
 
 # Added by codebase-memory-mcp install
 export PATH="/Users/yacolate0519/.local/bin:$PATH"
