@@ -12,6 +12,7 @@ export HOMEBREW_AUTO_UPDATE_SECS=86400
 
 # Claude Code 
 export PATH="$HOME/.local/bin:$PATH"
+alias cc="claude"
 
 # Python alias → run python when typing python3
 alias python="python3"
@@ -20,11 +21,22 @@ alias pip="pip3"
 # LazyGit alias -> run lazygit when typing lg
 alias lg="lazygit"
 
+alias ..="cd .."
+
 # oh-my-zsh setup → path, theme, plugins, and core initialization
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
+
+# Java PATH
+export JAVA_HOME=$(/usr/libexec/java_home -v 17)
+export PATH="$JAVA_HOME/bin:$PATH"
+
+# Hadoop 
+export HADOOP_HOME="/opt/homebrew/opt/hadoop/libexec"
+export HADOOP_CONF_DIR="$HADOOP_HOME/etc/hadoop"
+export PATH="/opt/homebrew/opt/hadoop/bin:/opt/homebrew/opt/hadoop/sbin:$PATH"
 
 # Lazy-load conda environment keep zsh working fast-start
 conda() {
@@ -38,16 +50,14 @@ conda() {
 
 # Tmux auto-start
 # Only ayto-attach tmux in real terminal, NOT inside VSCode
-if [[ $- == *i* ]] \
-   && [ -z "$TMUX" ] \
-   && [ "$TERM_PROGRAM" != "vscode" ] \
-   && command -v tmux &>/dev/null; then
-  tmux attach-session -t default || tmux new-session -s default
-  exit
-fi
-
-
-
+# if [[ $- == *i* ]] \
+#   && [ -z "$TMUX" ] \
+#   && [ "$TERM_PROGRAM" != "vscode" ] \
+#   && command -v tmux &>/dev/null; then
+#   tmux attach-session -t default || tmux new-session -s default
+#   exit
+# fi
+#
 # Added by Antigravity
 export PATH="/Users/yacolate0519/.antigravity/antigravity/bin:$PATH"
 
@@ -62,3 +72,14 @@ export PATH="$PATH:/Users/yacolate0519/.lmstudio/bin"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
+export JAVA_HOME="/opt/homebrew/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home"
+
+# Added by codebase-memory-mcp install
+export PATH="/Users/yacolate0519/.local/bin:$PATH"
+
+# >>> grok installer >>>
+export PATH="$HOME/.grok/bin:$PATH"
+fpath=(~/.grok/completions/zsh $fpath)
+autoload -Uz compinit && compinit -C
+# <<< grok installer <<<
